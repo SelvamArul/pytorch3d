@@ -46,7 +46,17 @@ def get_extensions():
     include_dirs = [extensions_dir]
 
     force_cuda = os.getenv("FORCE_CUDA", "0") == "1"
+    print ('*'*20)
+    print ('*'*20)
+    print ('CUDA_HOME',  CUDA_HOME)
+    print ('*'*20)
+    print ('*'*20)
     if (torch.cuda.is_available() and CUDA_HOME is not None) or force_cuda:
+        print ('*'*20)
+        print ('*'*20)
+        print ('Building with CUDA')
+        print ('*'*20)
+        print ('*'*20)
         extension = CUDAExtension
         sources += source_cuda
         define_macros += [("WITH_CUDA", None)]
